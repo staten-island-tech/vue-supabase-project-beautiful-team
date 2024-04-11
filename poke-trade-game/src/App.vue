@@ -4,16 +4,20 @@ import HelloWorld from './components/HelloWorld.vue'
 import { ref, onMounted } from 'vue'
 import { supabase } from './lib/supabaseClient'
 const test = ref([])
-
 async function getTest() {
-  const { data } = await supabase.from('test').select()
-  test.value = data
+  /*  const { data } = await supabase.from('test').select()
+  test.value = data  */
+  const { data, error } = await supabase.auth.signUp({
+  email: 'example@email.com',
+  password: 'example-password',
+})
+console.log(data,error)
+  
 }
- 
-
 onMounted(() => {
   getTest()
 })
+
 </script>
 <script>
 /* const PokeCards = "https://api.pokemontcg.io/v2/cards/"
@@ -28,6 +32,7 @@ const PokeCardJSON = await GrabCards.json();  */
 </script>
 <template>
   <ul>
+    <h1>Log in below!!!</h1>
     <li v-for="name in test" :key="name.id">{{ name.name }}</li>
   </ul>
 </template>
