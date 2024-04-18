@@ -7,17 +7,20 @@ const test = ref([])
 async function getTest() {
   /*  const { data } = await supabase.from('test').select()
   test.value = data  */
-  const { data,} = await supabase.auth.signUp({
-  email: 'example@email.com', // email test
-  password: 'example-password', // password test
-})
-console.log(data,) //null
+  console.log('hi')
+/* console.log(data,) */ //null
   
 }
 onMounted(() => {
   getTest()
 })
-
+ async function signUp(){
+  const { data, error}  = await supabase.auth.signUp({
+  email: 'example@email.com', // email test
+  password: 'example-password', // password test
+})
+}
+signUp()
 </script>
 <script>
 /* const PokeCards = "https://api.pokemontcg.io/v2/cards/"
