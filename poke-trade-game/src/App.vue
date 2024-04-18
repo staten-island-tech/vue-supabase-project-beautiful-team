@@ -7,11 +7,11 @@ const test = ref([])
 async function getTest() {
   /*  const { data } = await supabase.from('test').select()
   test.value = data  */
-  const { data, error } = await supabase.auth.signUp({
+  const { data,} = await supabase.auth.signUp({
   email: 'example@email.com', // email test
   password: 'example-password', // password test
 })
-console.log(data,error) //null
+console.log(data,) //null
   
 }
 onMounted(() => {
