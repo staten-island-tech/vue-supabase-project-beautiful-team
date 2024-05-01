@@ -13,14 +13,20 @@ async function getTest() {
 }
 onMounted(() => {
   getTest()
-})
- async function signUp(){
+/*   signUp() */
+  signUpNewUser()
+}) // how do i do thuis
+ async function signUpNewUser(){
   const { data, error}  = await supabase.auth.signUp({
   email: 'example@email.com', // email test
   password: 'example-password', // password test
-})
+  options: {
+      emailRedirectTo: 'https://example.com/welcome',
+    },
+  
 }
-signUp()
+    , console.log('test',))
+}
 </script>
 <script>
 /* const PokeCards = "https://api.pokemontcg.io/v2/cards/"
