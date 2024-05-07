@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { ref, onMounted } from 'vue'
@@ -27,17 +27,17 @@ onMounted(() => {
 }
     , console.log('test',))
 }
-</script>
+</script> -->
 <script>
-/* const PokeCards = "https://api.pokemontcg.io/v2/cards/"
+ const PokeCards = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
 const GrabCards = await fetch(PokeCards);
-const PokeCardJSON = await GrabCards.json();  */
-/* function pokemons(){
-    PokeCardJSON.forEach(card => {
-    const name = card.name
-    console.log(name) too laggy right now
-});} */
-/* pokemons() */
+const PokeCardJSON = await GrabCards.json();  
+ function pokemons(){
+  
+    PokeCardJSON.forEach((thing )=> {
+    console.log(thing.results.name)}
+);} 
+ pokemons() 
 </script>
 <template>
   <ul>
