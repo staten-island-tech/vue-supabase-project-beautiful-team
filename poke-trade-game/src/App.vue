@@ -1,4 +1,4 @@
-<!-- <script setup>
+ <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { ref, onMounted } from 'vue'
@@ -9,26 +9,26 @@ async function getTest() {
   test.value = data  */
   console.log('hi')
 /* console.log(data,) */ //null
-  
+  const email = ref('')
+  const password = ref('')
 }
-onMounted(() => {
-  getTest()
-/*   signUp() */
-  signUpNewUser()
-}) // how do i do thuis
  async function signUpNewUser(){
-  const { data, error}  = await supabase.auth.signUp({
-  email: 'example@email.com', // email test
-  password: 'example-password', // password test
+  const Users = await supabase.auth.signUp({
+  email: email.value , // email test
+  password: password.value  ,// password test
   options: {
       emailRedirectTo: 'https://example.com/welcome',
     },
   
 }
-    , console.log('test',))
-}
-</script> -->
-<script>
+    , console.log('test',)) }
+onMounted(() => {
+  getTest()
+
+  signUpNewUser()
+})
+</script> 
+/* <!--  <script>
  const PokeCards = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
 const GrabCards = await fetch(PokeCards);
 const PokeCardJSON = await GrabCards.json();  
@@ -38,10 +38,10 @@ const PokeCardJSON = await GrabCards.json();
     console.log(thing.results.name)}
 );} 
  pokemons() 
-</script>
+</script> --> */
 <template>
   <ul>
     <h1>Log in below!!!</h1>
     <li v-for="name in test" :key="name.id">{{ name.name }}</li>
   </ul>
-</template>
+</template> 
