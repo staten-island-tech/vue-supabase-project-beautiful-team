@@ -3,17 +3,19 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { ref, onMounted } from 'vue'
 import { supabase } from './lib/supabaseClient'
+
 const test = ref([])
-async function getTest() {
+const email = ref('')
+const password = ref('')
+//async function getTest() {
   /*  const { data } = await supabase.from('test').select()
   test.value = data  */
-  console.log('hi')
+  //console.log('hi')
 /* console.log(data,) */ //null
-  const email = ref('')
-  const password = ref('')
-}
+//}
  async function signUpNewUser(){
   const Users = await supabase.auth.signUp({
+    
   email: email.value , // email test
   password: password.value  ,// password test
   options: {
@@ -21,12 +23,13 @@ async function getTest() {
     },
   
 }
-    , console.log('test',)) }
-onMounted(() => {
-  getTest()
+    ,)
+    console.log('test', Users, )
+  const {data, error} = await supabase
+    .from }
 
-  signUpNewUser()
-})
+    signUpNewUser()
+
 </script> 
 /* <!--  <script>
  const PokeCards = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
