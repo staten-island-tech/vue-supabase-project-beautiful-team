@@ -24,12 +24,13 @@ const password = ref('')
   
 }
     ,)
-    console.log('test', Users, )
-  const {data, error} = await supabase
-    .from }
+    console.log('test', Users, email, password)
+/*   const {data, error} = await supabase
+    .from }*/
 
-    signUpNewUser()
-
+    
+ }
+ signUpNewUser()
 </script> 
 /* <!--  <script>
  const PokeCards = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
@@ -45,6 +46,9 @@ const PokeCardJSON = await GrabCards.json();
 <template>
   <ul>
     <h1>Log in below!!!</h1>
-    <li v-for="name in test" :key="name.id">{{ name.name }}</li>
+    <input type="text" v-model="email" placeholder="Email!">
+    <input type="text" v-model="password" placeholder="Password!">
+    <button @click="signUpNewUser"> Sign Up </button>
+
   </ul>
 </template> 
