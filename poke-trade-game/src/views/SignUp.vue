@@ -1,8 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+/* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
-import { supabase } from './lib/supabaseClient'
+import { supabase } from '/src/lib/supabaseClient.js'
 const test = ref([])
 const email = ref('')
 const password = ref('')
