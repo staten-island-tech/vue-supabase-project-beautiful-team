@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'App',
-      component:() => import('../views/App.vue')
+      component:() => import('../App.vue')
     },
     {
       path: '/about',
@@ -19,5 +19,5 @@ const router = createRouter({
     }
   ]
 })
-router.addRoute({ path: 'Sign', name: 'SignUp', component:()=> import('../views/SignUp.vue') })
+router.addRoute({ path: '/Sign', name: 'SignUp', component:()=> import('../views/SignUp.vue') })
 export default router
