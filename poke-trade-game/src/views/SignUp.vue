@@ -26,13 +26,20 @@ const password = ref('')
 /*   const {data, error} = await supabase
     .from }*/
  }
+async function LogIn(){
+ const Log = await supabase.auth.signInWithPassword({
+  email: email.value,
+  password: password.value,
+})}
 </script> 
 <template>
   <ul>
-    <h1>Log in below!!!</h1>
+    <h1>Sign Up!!</h1>
     <input type="text" v-model="email" placeholder="Email!">
-    <input type="password" v-model="password" placeholder="Password!">
+    <input type="password" v-model ="password" placeholder="Password!">
     <button @click="signUpNewUser"> Sign Up </button>
+    <h1> Log In</h1>
+    <button @click="LogIn"> Log In</button>
 
   </ul>
 </template> 
