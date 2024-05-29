@@ -6,8 +6,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'App',
-      component:() => import('../App.vue')
+      name: 'HomeView',
+      component:() => import('../views/HomeView.vue')
     },
     {
       path: '/about',
@@ -20,4 +20,6 @@ const router = createRouter({
   ]
 })
 router.addRoute({ path: '/Sign', name: 'SignUp', component:()=> import('../views/SignUp.vue') })
+router.addRoute({ path: '/Log', name: 'LogIn', component:()=> import('../views/LogIn.vue') })
+router.addRoute({ path:'/Cards', name:'Cards', component:()=> import('../views/Cards.vue')})
 export default router

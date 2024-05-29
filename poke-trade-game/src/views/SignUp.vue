@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabaseClient.js'
-const test = ref([])
+/* const test = ref([]) */
 const email = ref('')
 const password = ref('')
 //async function getTest() {
@@ -17,20 +17,12 @@ const password = ref('')
     
   email: email.value , // email test
   password: password.value  ,// password test
-  options: {
-      emailRedirectTo: 'https://example.com/welcome',
-    },
 }
     ,)
-    console.log('test', Users, email, password)
+  /*   console.log('test', Users, email, password) */
 /*   const {data, error} = await supabase
     .from }*/
  }
-async function LogIn(){
- const Log = await supabase.auth.signInWithPassword({
-  email: email.value,
-  password: password.value,
-})}
 </script> 
 <template>
   <ul>
@@ -38,9 +30,7 @@ async function LogIn(){
     <input type="text" v-model="email" placeholder="Email!">
     <input type="password" v-model ="password" placeholder="Password!">
     <button @click="signUpNewUser"> Sign Up </button>
-    <h1> Log In</h1>
-    <button @click="LogIn"> Log In</button>
-
+    <RouterLink to="/"> Go To Home</RouterLink>
   </ul>
 </template> 
  <!--  <script>
