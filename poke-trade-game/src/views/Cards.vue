@@ -1,15 +1,11 @@
   <script>
-  
-  const PokeCards = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
- const GrabCards = await fetch(PokeCards);
- const PokeCardJSON = await GrabCards.json();  
-  /* function pokemons(){
-   
-     PokeCardJSON.forEach((thing )=> {
-     console.log(thing.results.name)}
- );} 
-  pokemons()  */
+  <script type="text/javascript">
+    const Money = 100
+  </script>
  </script> 
  <template>
         <RouterLink to="/"> Go To Home</RouterLink>
+        <h1> <script type="text/javascript">
+        document.write(Money)
+      </script> </h1>
  </template>
