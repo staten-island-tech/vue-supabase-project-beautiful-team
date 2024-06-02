@@ -1,4 +1,6 @@
 <script>
+import { onMounted } from 'vue';
+import { supabase, Logged} from '../lib/supabaseClient.js'
 </script>
 
 <template>
@@ -8,5 +10,7 @@
     <RouterLink to="/Log"> Go To Log In</RouterLink>
     <RouterLink to="/"> Go To Home</RouterLink>
     <RouterLink to="/Cards"> Go To Cards</RouterLink>
+    <div v-if='Logged'> <h1> You are logged in.</h1></div>
+    <div v-else=><h1>You are Not Logged in</h1></div>
   </nav> 
 </template>

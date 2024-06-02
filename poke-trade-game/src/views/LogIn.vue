@@ -1,18 +1,28 @@
+<script>
+</script>
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
-import { supabase } from '../lib/supabaseClient.js'
+import { supabase, Logged  } from '../lib/supabaseClient.js'
+
 /* const test = ref([]) */
 const email = ref('')
 const password = ref('')
 
 async function LogIn(){
- const Log = await supabase.auth.signInWithPassword({
+ const {data, error}= await supabase.auth.signInWithPassword({
 
   email: email.value,
   password: password.value,
 })
+if (error){
+  console.log(error)
+}
+else{
+    Logged.value = true
+    console.log('log in success', Logged.value)
+}
 /* console.log(Log) */}
 
 </script>
