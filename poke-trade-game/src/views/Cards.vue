@@ -15,7 +15,7 @@ app.use(pinia)
 app.mount('#app') */
 import { ref, onMounted } from 'vue'
 let Money = 1
-function BuyPoke(){ // BuyPoke is not defined when is used in a button, but works when I just run it normally.
+function BuyPoke(){
 if(Money >= 1){
        Money -= 1
        alert('Pokemon Bought')
@@ -32,7 +32,6 @@ if(Money >= 1){
 } */
 const Bought = ref(false)
 const Link = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0"
-
 let itemsArray = ref([])
 async function GetInput(){
   try {
@@ -59,10 +58,10 @@ GetInput()
 </script> 
 <template>
        <h1> Purchase One Pokemon</h1>
-       <div v-if="Bought"> <h1> Pokemon Bought! </h1></div>
+       <div v-if="Bought"> <h1> Pokemon Bought, No more for you! </h1></div>
        <RouterLink to="/"> Go To Home</RouterLink>
        <div v-for="item in itemsArray" id="app" >
               <p>{{item.name}}</p>
-              <button @click="BuyPoke()">Buy This Pokemon (1)</button>
-       </div>
+              <button @click="BuyPoke()">Buy This Pokemon (1)</button> <!-- i wonder how to take the pokemon they bought and display it -->
+       </div> 
  </template>
