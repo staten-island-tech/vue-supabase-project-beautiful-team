@@ -1,15 +1,17 @@
 <script>
 </script>
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
 
 import { supabase, Logged  } from '../lib/supabaseClient.js'
 
+
 /* const test = ref([]) */
 const email = ref('')
 const password = ref('')
+const router = useRouter()
 
 async function LogIn(){
  const {data, error}= await supabase.auth.signInWithPassword({
@@ -21,8 +23,11 @@ async function LogIn(){
   console.log(error)
   }
     else{
-    Logged.value = true
     console.log('log in success', Logged.value) // Logged works here but doesn't carry over to other pages.
+    setTimeout(() => {
+      Logged.value = true
+      router.push('/')
+    },2000)
 }
 /* console.log(Log) */}
 async function LogOut(){
