@@ -1,13 +1,15 @@
 <template>
      <RouterLink to="/"> Go To Home</RouterLink>
-    <div v-if="Logged"> <button onclick="CreatePost()"> Create Post </button></div>
-    <div v-else> <h1> Please Log In to Create A Post </h1></div>
 </template>
-<script>
+<script setup>
     import { supabase, Logged  } from '../lib/supabaseClient.js'
+    import { ref, onMounted } from 'vue'
+import {useRouter} from 'vue-router'
+const router = useRouter()
+onMounted (async () => {
+       console.log(Logged)
+       if (!Logged.value){
+       router.push('/Log')}
+})
 
-function CreatePost(){
-    console.log('hi')
-    // take poke id and post the name of it 
-}
 </script>
