@@ -4,6 +4,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
+
 import { supabase, Logged  } from '../lib/supabaseClient.js'
 
 /* const test = ref([]) */
@@ -16,18 +17,20 @@ async function LogIn(){
   email: email.value,
   password: password.value,
 })
-if (error){
+  if (error){
   console.log(error)
-}
-else{
+  }
+    else{
     Logged.value = true
-    console.log('log in success', Logged.value)
+    console.log('log in success', Logged.value) // Logged works here but doesn't carry over to other pages.
 }
 /* console.log(Log) */}
 
 </script>
 <template>
     <h1> Log In </h1>
+    <div v-if='Logged'> <h1> Logged In! </h1></div>  
+    <div v-else> <h1> Not Logged in. </h1></div>
     <input type="text" v-model="email" placeholder="Email!">
     <input type="password" v-model ="password" placeholder="Password!">
     <button @click="LogIn"> Log In </button>
