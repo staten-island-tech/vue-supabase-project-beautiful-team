@@ -23,7 +23,7 @@ async function LogIn(){
   console.log(error)
   }
     else{
-    console.log('log in success', Logged.value) // Logged works here but doesn't carry over to other pages.
+    console.log('log in success', ) // Logged works here but doesn't carry over to other pages.
     setTimeout(() => {
       Logged.value = true
       router.push('/')
