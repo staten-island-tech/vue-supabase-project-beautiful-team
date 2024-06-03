@@ -17,8 +17,8 @@ import { ref, onMounted } from 'vue'
 let Money = 1
 function BuyPoke(){ // BuyPoke is not defined when is used in a button, but works when I just run it normally.
 if(Money >= 1){
-       Money = Money - 1
-       console.log('test')
+       Money -= 1
+       console.log('test', Money)
        }
        else{
               console.log('no money')
@@ -27,7 +27,6 @@ if(Money >= 1){
 const DOMSelectors = {
       App  : document.getElementById("app"),
 }
-DOMSelectors.App.insertAdjacentHTML('beforeend', Money)
 const Link = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0"
 let itemsArray = ref([])
 async function GetInput(){
@@ -54,9 +53,10 @@ GetInput()
 
 </script> 
 <template>
+       <h1> Purchase One Pokemon</h1>
        <RouterLink to="/"> Go To Home</RouterLink>
        <div v-for="item in itemsArray" id="app" >
-              <p>{{ item.name }}</p>
+              <p>{{item.name}}</p>
               <button @click="BuyPoke()">Buy This Pokemon (1)</button>
        </div>
 <button @click="BuyPoke()"> Test</button>
