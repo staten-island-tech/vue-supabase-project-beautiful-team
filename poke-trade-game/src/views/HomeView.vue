@@ -10,7 +10,8 @@ import { supabase, Logged} from '../lib/supabaseClient.js'
     <RouterLink to="/Log"> Go To Log In</RouterLink>
     <RouterLink to="/"> Go To Home</RouterLink>
     <RouterLink to="/Cards"> Go To Cards</RouterLink>
-    <div v-if='Logged'> <h1> You are logged in.</h1></div>
+    <RouterLink to="/Post"> Go To Feed</RouterLink>
+    <div v-if='Logged'> <h1> You are logged in.</h1></div> <!-- doesn't transfer Logged here, maybe use Pinia -->
     <div v-else><h1>You are Not Logged in</h1></div>
   </nav> 
 </template>

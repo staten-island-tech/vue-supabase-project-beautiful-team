@@ -22,4 +22,5 @@ const router = createRouter({
 router.addRoute({ path: '/Sign', name: 'SignUp', component:()=> import('../views/SignUp.vue') })
 router.addRoute({ path: '/Log', name: 'LogIn', component:()=> import('../views/LogIn.vue') })
 router.addRoute({ path:'/Cards', name:'Cards', component:()=> import('../views/Cards.vue')})
+router.addRoute({ path:'/Post', name:'Post', component:()=> import('../views/Post.vue')})
 export default router
