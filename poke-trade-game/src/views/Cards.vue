@@ -18,23 +18,28 @@ let Money = 1
 function BuyPoke(){ // BuyPoke is not defined when is used in a button, but works when I just run it normally.
 if(Money >= 1){
        Money -= 1
+       alert('Pokemon Bought')
        console.log('test', Money)
+       Bought.value = true
        }
        else{
               console.log('no money')
+              alert('You Do not have any more money')
        }
 }
-const DOMSelectors = {
+/* const DOMSelectors = {
       App  : document.getElementById("app"),
-}
+} */
+const Bought = ref(false)
 const Link = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0"
+
 let itemsArray = ref([])
 async function GetInput(){
   try {
        
        const response = await fetch(Link);
        const stuff = await response.json();
-       itemsArray = stuff.results
+       itemsArray.value = stuff.results
        console.log(itemsArray)
   /*      console.log(stuff.results)  
               stuff.results.forEach((card) => {
@@ -54,10 +59,10 @@ GetInput()
 </script> 
 <template>
        <h1> Purchase One Pokemon</h1>
+       <div v-if="Bought"> <h1> Pokemon Bought! </h1></div>
        <RouterLink to="/"> Go To Home</RouterLink>
        <div v-for="item in itemsArray" id="app" >
               <p>{{item.name}}</p>
               <button @click="BuyPoke()">Buy This Pokemon (1)</button>
        </div>
-<button @click="BuyPoke()"> Test</button>
  </template>
