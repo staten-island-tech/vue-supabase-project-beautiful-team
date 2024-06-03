@@ -1,7 +1,7 @@
 <template>
        <RouterLink to="/"> Go To Home</RouterLink>
-       <div id="app"></div>
-<button onclick="BuyPoke()"> test</button>
+       <div id="app" ></div>
+<button @click="BuyPoke()"> test</button>
  </template>
 <script>
 let Money = 1
@@ -29,7 +29,7 @@ async function GetInput(){
                       const FirstName = card.name
                    const Up = FirstName[0].toUpperCase() + FirstName.slice(1);
                    const cards = `<h1> ${Up} </h1> <button onclick="BuyPoke()"> Buy One </button>` // Appears on all pages for some reason.
-                      DOMSelectors.App.insertAdjacentHTML('beforeend', cards)
+                      DOMSelectors.App.insertAdjacentHTML('beforeend', cards) //If i use @click for this button nothing happens
                       })}
                       
    catch(error) {

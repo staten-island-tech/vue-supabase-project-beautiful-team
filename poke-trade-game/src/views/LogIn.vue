@@ -25,11 +25,14 @@ async function LogIn(){
     console.log('log in success', Logged.value) // Logged works here but doesn't carry over to other pages.
 }
 /* console.log(Log) */}
-
+async function LogOut(){
+  Logged.value = false
+  console.log(Logged)
+}
 </script>
 <template>
     <h1> Log In </h1>
-    <div v-if='Logged'> <h1> Logged In! </h1></div>  
+    <div v-if='Logged'> <h1> Logged In! </h1> <button @click="LogOut()"> Log Out </button></div>  
     <div v-else> <h1> Not Logged in. </h1></div>
     <input type="text" v-model="email" placeholder="Email!">
     <input type="password" v-model ="password" placeholder="Password!">
