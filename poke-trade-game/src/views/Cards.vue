@@ -23,13 +23,15 @@ onMounted (async () => {
        router.push('/Log')}
 })
 let Money = 1
-
-function BuyPoke(){
+let boughtpoke 
+function BuyPoke(poke){
 if(Money >= 1){
        Money -= 1
        alert('Pokemon Bought')
        console.log('test', Money)
        Bought.value = true
+       boughtpoke = poke
+       console.log(boughtpoke)
        }
        else{
               console.log('no money')
@@ -60,18 +62,18 @@ async function GetInput(){
                       
    catch(error) {
           console.log(error)
-         
+       // make a seperate table for pokemon, make id's for them, owners uuid
         }}; //make a variable that stores if it's bought and name of what has been bought. in v-for, display div if item.name = bought.name
 GetInput()
 
 </script> 
 <template>
        <h1> Purchase One Pokemon</h1>
-       <div v-if="Bought"> <h1>  Pokemon Bought, No more for you! </h1></div>
-       <RouterLink to="/"> Go To Home</RouterLink>
+       <div v-if="Bought"> <h1>  {{ boughtpoke.name }} Pokemon Bought, No more for you!  </h1></div><!-- send to poke table, use pinia to utilize session id. -->
+       <RouterLink to="/"> Go To Home</RouterLink>  
        <div v-for="item in itemsArray" id="app" >
               <p>{{item.name}}</p>
-              <button @click="BuyPoke()">Buy This Pokemon (1)</button> 
+              <button @click="BuyPoke(item)">Buy This Pokemon (1)</button> 
        </div> 
  </template>
  
