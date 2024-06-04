@@ -76,4 +76,3 @@ GetInput()
               <button @click="BuyPoke(item)">Buy This Pokemon (1)</button> 
        </div> 
  </template>
- 
