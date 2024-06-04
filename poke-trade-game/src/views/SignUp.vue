@@ -12,7 +12,7 @@ const password = ref('')
   //console.log('hi')
 /* console.log(data,) */ //null
 //}
- async function signUpNewUser(){
+async function signUpNewUser(){
   const Users = await supabase.auth.signUp({
     
   email: email.value , // email test

@@ -23,6 +23,7 @@ onMounted (async () => {
        router.push('/Log')}
 })
 let Money = 1
+
 function BuyPoke(){
 if(Money >= 1){
        Money -= 1
@@ -60,7 +61,7 @@ async function GetInput(){
    catch(error) {
           console.log(error)
          
-        }};
+        }}; //make a variable that stores if it's bought and name of what has been bought. in v-for, display div if item.name = bought.name
 GetInput()
 
 </script> 
@@ -70,6 +71,7 @@ GetInput()
        <RouterLink to="/"> Go To Home</RouterLink>
        <div v-for="item in itemsArray" id="app" >
               <p>{{item.name}}</p>
-              <button @click="BuyPoke()">Buy This Pokemon (1)</button> <!-- i wonder how to take the pokemon they bought and display it -->
+              <button @click="BuyPoke()">Buy This Pokemon (1)</button> 
        </div> 
  </template>
+ 
