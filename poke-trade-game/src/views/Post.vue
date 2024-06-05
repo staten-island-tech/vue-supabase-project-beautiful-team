@@ -1,5 +1,5 @@
 <template>
-     <RouterLink to="/"> Go To Home</RouterLink>
+     <RouterLink class="Link" to="/"> Go To Home</RouterLink>
 </template>
 <script setup>
     import { supabase, Logged  } from '../lib/supabaseClient.js'

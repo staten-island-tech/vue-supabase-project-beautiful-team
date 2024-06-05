@@ -25,17 +25,20 @@ onMounted (async () => {
 let Money = 1
 let boughtpoke 
  async function BuyPoke(poke){
-if(Money >= 1){
-       Money -= 1
-       alert('Pokemon Bought')
-       console.log('test', Money)
-       Bought.value = true
-       boughtpoke = poke
-       console.log(boughtpoke)
-       console.log(boughtpoke.name)
-const {data, error} = await supabase
-       .from("pokemon")
-       .insert({name: boughtpoke.name})
+       if(Money >= 1){
+              Money -= 1
+              alert('Pokemon Bought')
+              console.log('test', Money)
+              Bought.value = true
+              boughtpoke = poke
+              console.log(boughtpoke)
+              console.log(boughtpoke.name)
+              const {data, error} = await supabase
+                     .from("profiles")
+                     .insert({pokemon: boughtpoke.name})
+                     .from("pokemon")
+                     .insert({name: boughtpoke.name}) // was listening to drake while coding this part
+              //.eq is for updating data (started to listwn to kendrick)
        }
        else{
               console.log('no money')
@@ -73,10 +76,40 @@ GetInput()
 </script> 
 <template>
        <h1> Purchase One Pokemon</h1>
-       <div v-if="Bought"> <h1>  {{ boughtpoke.name }} Pokemon Bought, No more for you!  </h1></div><!-- send to poke table, use pinia to utilize session id. -->
-       <RouterLink to="/"> Go To Home</RouterLink>  
+       <div v-if="Bought"> <h1>  {{ boughtpoke.name }}, Pokemon Bought, No more for you!  </h1></div><!-- send to poke table, use pinia to utilize session id. -->
+       <RouterLink class="Link" to="/"> Go To Home</RouterLink>  
        <div v-for="item in itemsArray" id="app" >
-              <p>{{item.name}}</p>
-              <button @click="BuyPoke(item)">Buy This Pokemon (1)</button> 
+              <p class='poke'>{{item.name}}</p>
+              
+              <button class="btn" @click="BuyPoke(item)">Buy This Pokemon {{ (Money) }}</button> 
        </div> 
  </template>
+ <style>
+.poke{
+                     float :left;
+                    outline: 0;
+                    border: 0;
+                    cursor: pointer;
+                    background-color:rgb(127, 85, 224);
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: white;
+                    line-height: 26px;
+}
+ .btn{
+       display: inline-block;
+                    outline: 0;
+                    border: 0;
+                    cursor: pointer;
+                    background-color:rgb(224, 85, 85);
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: white;
+                    line-height: 26px;
+                
+ }
+</style>

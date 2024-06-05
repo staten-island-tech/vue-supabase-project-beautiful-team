@@ -41,6 +41,6 @@ async function LogOut(){
     <div v-else> <h1> Not Logged in. </h1></div>
     <input type="text" v-model="email" placeholder="Email!">
     <input type="password" v-model ="password" placeholder="Password!">
-    <button @click="LogIn"> Log In </button>
-    <RouterLink to="/"> Go To Home</RouterLink>
+    <button  @click="LogIn"> Log In </button>
+    <RouterLink class="Link" to="/"> Go To Home</RouterLink>
 </template>

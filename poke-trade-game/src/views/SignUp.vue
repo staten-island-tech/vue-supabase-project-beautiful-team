@@ -35,8 +35,8 @@ signed.value = true
     <div v-if="signed"><h1> Signed Up Successfully</h1></div>
     <input type="text" v-model="email" placeholder="Email!">
     <input type="password" v-model ="password" placeholder="Password!">
-    <button @click="signUpNewUser"> Sign Up </button>
-    <RouterLink to="/"> Go To Home</RouterLink>
+    <button  @click="signUpNewUser"> Sign Up </button>
+    <RouterLink class="Link" to="/"> Go To Home</RouterLink>
   </ul>
 </template> 
  <!--  <script>
