@@ -15,7 +15,7 @@ app.use(pinia)
 app.mount('#app') */
 import { ref, onMounted } from 'vue'
 import {useRouter} from 'vue-router'
-import { Logged } from '@/lib/supabaseClient';
+import { Logged, supabase } from '@/lib/supabaseClient';
 const router = useRouter()
 onMounted (async () => {
        console.log(Logged)
@@ -24,7 +24,7 @@ onMounted (async () => {
 })
 let Money = 1
 let boughtpoke 
-function BuyPoke(poke){
+ async function BuyPoke(poke){
 if(Money >= 1){
        Money -= 1
        alert('Pokemon Bought')
@@ -32,6 +32,10 @@ if(Money >= 1){
        Bought.value = true
        boughtpoke = poke
        console.log(boughtpoke)
+       console.log(boughtpoke.name)
+const {data, error} = await supabase
+       .from("pokemon")
+       .insert({name: boughtpoke.name})
        }
        else{
               console.log('no money')
