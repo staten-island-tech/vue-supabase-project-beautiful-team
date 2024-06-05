@@ -34,8 +34,8 @@ let boughtpoke
               console.log(boughtpoke)
               console.log(boughtpoke.name)
               const {data, error} = await supabase
-                     .from("profiles")
-                     .insert({pokemon: boughtpoke.name})
+                     /* .from("profiles")
+                     .insert({pokemon: boughtpoke.name}) */
                      .from("pokemon")
                      .insert({name: boughtpoke.name}) // was listening to drake while coding this part
               //.eq is for updating data (started to listwn to kendrick)
@@ -81,17 +81,15 @@ GetInput()
        <div v-for="item in itemsArray" id="app" >
               <p class='poke'>{{item.name}}</p>
               
-              <button class="btn" @click="BuyPoke(item)">Buy This Pokemon {{ (Money) }}</button> 
+              <button class="btn" @click="BuyPoke(item)">Buy This Pokemon ({{ (Money) }})</button> 
        </div> 
  </template>
  <style>
 .poke{
-                     float :left;
+                    margin-left: 100px;
                     outline: 0;
                     border: 0;
-                    cursor: pointer;
                     background-color:rgb(127, 85, 224);
-                    border-radius: 4px;
                     padding: 8px 16px;
                     font-size: 16px;
                     font-weight: 700;
@@ -104,12 +102,12 @@ GetInput()
                     border: 0;
                     cursor: pointer;
                     background-color:rgb(224, 85, 85);
-                    border-radius: 4px;
                     padding: 8px 16px;
                     font-size: 16px;
                     font-weight: 700;
                     color: white;
                     line-height: 26px;
+                    /* thank you huemint */
                 
  }
 </style>
