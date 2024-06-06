@@ -1,6 +1,7 @@
 
 
 <script setup>
+// Stuff Left to Do 1.) Fix Poke/UUID, 2.) Connect em, 3.) Posting, 4.) Refresh/going back,
 /* import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from '/App.vue'
@@ -19,6 +20,7 @@ import { Logged, supabase } from '@/lib/supabaseClient';
 import { useStore } from '@/stores/piniastore.js';
 const router = useRouter()
 const PiniaFunction = useStore()
+console.log(PiniaFunction.pokecheck) // null
 onMounted (async () => {
        console.log(Logged)
        if (!Logged.value){
@@ -33,8 +35,8 @@ let boughtpoke
               console.log('test', Money)
               Bought.value = true
               boughtpoke = poke
-              console.log(boughtpoke)
-              console.log(boughtpoke.name)
+             /*  console.log(boughtpoke)
+              console.log(boughtpoke.name) */
               
               let {data, error} = await supabase
               

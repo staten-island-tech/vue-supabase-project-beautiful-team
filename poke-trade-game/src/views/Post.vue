@@ -17,6 +17,7 @@ function PostCreation(){
     
 
     <input type="text"> Caption of Post</input> <p></p>
+    <input type="text"> Link of your beautiful desired pokemon </input> <p></p>
     <!-- yoink current pokemon and put it as post information -->
     <button @click="PostCreation">  Create a new Post</button>
     <RouterLink class="Link" to="/"> Go To Home</RouterLink>
