@@ -20,7 +20,7 @@ async function LogIn(){
   password: password.value,
 })
   if (error){
-  console.log(error)
+    alert('error')
   }
     else{
     console.log('log in success', ) 

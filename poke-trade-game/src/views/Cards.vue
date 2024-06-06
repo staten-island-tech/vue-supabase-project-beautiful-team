@@ -16,7 +16,9 @@ app.mount('#app') */
 import { ref, onMounted } from 'vue'
 import {useRouter} from 'vue-router'
 import { Logged, supabase } from '@/lib/supabaseClient';
+import { useStore } from '@/stores/piniastore.js';
 const router = useRouter()
+const PiniaFunction = useStore()
 onMounted (async () => {
        console.log(Logged)
        if (!Logged.value){
@@ -33,12 +35,14 @@ let boughtpoke
               boughtpoke = poke
               console.log(boughtpoke)
               console.log(boughtpoke.name)
-              const {data, error} = await supabase
-                     /* .from("profiles")
-                     .insert({pokemon: boughtpoke.name}) */
+              
+              let {data, error} = await supabase
+              
                      .from("pokemon")
-                     .insert({name: boughtpoke.name}) // was listening to drake while coding this part
-              //.eq is for updating data (started to listwn to kendrick)
+                     .insert({name: boughtpoke.name,/*  user_uuid: */  },
+                     )
+                      //use pinia to grab current users uuid
+              //.eq is for updating data 
        }
        else{
               console.log('no money')

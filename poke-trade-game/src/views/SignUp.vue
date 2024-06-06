@@ -5,6 +5,7 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabaseClient.js'
 import { useStore } from '@/stores/piniastore.js';
 const PiniaFunction = useStore()
+
 /* const test = ref([]) */
 const email = ref('')
 const password = ref('')
@@ -16,14 +17,19 @@ const password = ref('')
 //}
 const signed = ref(false)
 async function signUpNewUser(){
-  const Users = await supabase.auth.signUp({
+  const {data, error}= await supabase.auth.signUp({
     
   email: email.value , // email test
   password: password.value  ,// password test
-}
-,console.log('successfull sign up',),
-signed.value = true
-    ,)
+  
+})
+  if(error){
+    alert('error')
+  }
+  else
+      {console.log('successfull sign up',),
+          signed.value = true}
+    
   /*   console.log('test', Users, email, password) */
 /*   const {data, error} = await supabase
     .from }*/
