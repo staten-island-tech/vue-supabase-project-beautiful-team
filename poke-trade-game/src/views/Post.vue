@@ -29,6 +29,7 @@ onMounted (async () => {
         .from('pokemon')
         .delete()
         .eq('user_uuid',  PiniaFunction.pokecheck.user.id)
+        alert('pokemon deleted')
     }
 </script>
 <template>
