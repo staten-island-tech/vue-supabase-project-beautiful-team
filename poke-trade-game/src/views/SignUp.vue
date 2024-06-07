@@ -25,10 +25,14 @@ async function signUpNewUser(){
 })
   if(error){
     alert('error')
+    
   }
   else
       {console.log('successfull sign up',),
           signed.value = true}
+          PiniaFunction.pokecheck =  data
+
+          
     
   /*   console.log('test', Users, email, password) */
 /*   const {data, error} = await supabase

@@ -1,6 +1,7 @@
 <script>
 import { onMounted } from 'vue';
 import { supabase, Logged} from '../lib/supabaseClient.js'
+let Money = 0
 </script>
 
 <template>

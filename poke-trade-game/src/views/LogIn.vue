@@ -4,7 +4,8 @@
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
-
+import { useStore } from '@/stores/piniastore.js';
+const PiniaFunction = useStore()
 import { supabase, Logged  } from '../lib/supabaseClient.js'
 
 
@@ -19,11 +20,14 @@ async function LogIn(){
   email: email.value,
   password: password.value,
 })
+PiniaFunction.pokecheck =  data
   if (error){
     alert('error')
   }
     else{
     console.log('log in success', ) 
+    PiniaFunction.pokecheck =  data
+/*     console.log(PiniaFunction.pokecheck) */
     setTimeout(() => {
       Logged.value = true
       router.push('/')

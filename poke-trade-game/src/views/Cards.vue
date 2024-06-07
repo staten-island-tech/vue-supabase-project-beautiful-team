@@ -20,7 +20,6 @@ import { Logged, supabase } from '@/lib/supabaseClient';
 import { useStore } from '@/stores/piniastore.js';
 const router = useRouter()
 const PiniaFunction = useStore()
-console.log(PiniaFunction.pokecheck) // null
 onMounted (async () => {
        console.log(Logged)
        if (!Logged.value){
@@ -30,22 +29,19 @@ let Money = 1
 let boughtpoke 
  async function BuyPoke(poke){
        if(Money >= 1){
-              Money -= 1
+              Money = 0
               alert('Pokemon Bought')
               console.log('test', Money)
               Bought.value = true
               boughtpoke = poke
+       
              /*  console.log(boughtpoke)
               console.log(boughtpoke.name) */
-              
+       
               let {data, error} = await supabase
-              
                      .from("pokemon")
-                     .insert({name: boughtpoke.name,/*  user_uuid: */  },
-                     )
-                      //use pinia to grab current users uuid
-              //.eq is for updating data 
-       }
+                     .insert({name: boughtpoke.name,  user_uuid: PiniaFunction.pokecheck.user.id})
+       }             
        else{
               console.log('no money')
               alert('You Do not have any more money')
