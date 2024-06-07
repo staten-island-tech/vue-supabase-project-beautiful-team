@@ -78,7 +78,7 @@ GetInput()
 </script> 
 <template>
        <h1> Purchase One Pokemon</h1>
-       <div v-if="Bought"> <h1>  {{ boughtpoke.name }}, Pokemon Bought, No more for you!  </h1></div><!-- send to poke table, use pinia to utilize session id. -->
+       <div v-if="Bought"> <h1>  {{ boughtpoke[0].name }}, Pokemon Bought, No more for you!  </h1></div><!-- send to poke table, use pinia to utilize session id. -->
        <RouterLink class="Link" to="/"> Go To Home</RouterLink>  
        <div v-for="item in itemsArray" id="app" >
               <p class='poke'>{{item.name}}</p>
