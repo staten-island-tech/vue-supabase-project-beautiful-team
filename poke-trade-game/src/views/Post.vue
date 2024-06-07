@@ -6,24 +6,29 @@ import { useStore } from '@/stores/piniastore.js';
 const PiniaFunction = useStore()
 const router = useRouter()
 const Clicked = ref(false)
-let PokeDisplay
+let PokeDisplay = ref()
 onMounted (async () => {
-       console.log(Logged)
+   /*     console.log(Logged) */
        if (!Logged.value){
        router.push('/Log')}
+       PostCreation()
 })
  async function PostCreation(){
     const {data, error} = await supabase
     .from('pokemon')
     .select('name')
     .eq('user_uuid', PiniaFunction.pokecheck.user.id)
-     PokeDisplay = data
-     Clicked.value = true
-     console.log(Clicked)
+    console.log(data)
+     PokeDisplay = data[0].name;
+     /* PokeList = PokeDisplay[0].name; */
      console.log(PokeDisplay)
+    /*  console.log(PokeList)  */
+     Clicked.value = true
+    /*  console.log(Clicked)
+     console.log(PokeDisplay) */
 /*     console.log(PiniaFunction.pokecheck.user.id) */
     }
-    PostCreation()
+
     async function RemovePoke(){
         const {data, error} = await supabase
         .from('pokemon')
