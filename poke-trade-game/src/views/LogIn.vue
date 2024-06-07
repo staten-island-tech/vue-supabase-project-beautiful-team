@@ -5,8 +5,9 @@ import { RouterLink, RouterView, useRouter } from 'vue-router'
 /* import HelloWorld from './components/HelloWorld.vue' */
 import { ref, onMounted } from 'vue'
 import { useStore } from '@/stores/piniastore.js';
-const PiniaFunction = useStore()
 import { supabase, Logged  } from '../lib/supabaseClient.js'
+const PiniaFunction = useStore()
+
 
 
 /* const test = ref([]) */

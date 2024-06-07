@@ -19,7 +19,7 @@ onMounted (async () => {
     .select('name')
     .eq('user_uuid', PiniaFunction.pokecheck.user.id)
     console.log(data)
-     PokeDisplay = data[0].name;
+     PokeDisplay.value = data[0].name;
      /* PokeList = PokeDisplay[0].name; */
      console.log(PokeDisplay)
     /*  console.log(PokeList)  */
@@ -39,7 +39,7 @@ onMounted (async () => {
 </script>
 <template>
     <h1> Your Pokemon Below :</h1> <p></p>
-  <h1>{{ PokeDisplay }}</h1>
+  <h1 v-if="PokeDisplay">{{ PokeDisplay }}</h1>
 
     <button @click="RemovePoke()"> Delete your pokemon</button>
     <RouterLink class="Link" to="/"> Go To Home</RouterLink>
